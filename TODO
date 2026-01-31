@@ -1,0 +1,21 @@
+3 VARIANT
+1. Advanced Optimization:
+CartItemListAPIView da select_related va prefetch_relateddan foydalanib, product,
+seller va mahsulotning barcha rasmlarini jami 2-3 ta queryda yuklang.
+
+2. Password Safety:
+UserChangePasswordModelSerializerda yangi parol eski parol bilan bir xil bo‘lib qolmasligini tekshiruvchi validator yozing.
+
+3. Ownership Permission:
+Sotuvchi faqat o‘ziga tegishli mahsulotlarni tahrirlashi (patch) yoki o‘chirishi uchun IsProductOwner permission-ni yarating va Product ViewSet-ga qo‘shing.
+
+4. Dynamic Fields:
+ProductListModelSerializerdan foydalanib, foydalanuvchi so‘rovda yuborgan fieldlarini
+(masalan: ?fields=id,name) dinamik ravishda qaytaruvchi mantiqni View’da qo‘llang.
+
+5. Price Range Filter: ProductFilterSetda mahsulotlarni min_price va max_price (narx oralig‘i) bo‘yicha filtrlashni django-filter orqali amalga oshiring.
+
+
+access:
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxMTUzNDI1LCJpYXQiOjE3Njk4NTc0MjUsImp0aSI6IjJlNGZmYmU2MWFiNDQ3MjU4NWUwYjlmYTI1YjZhNDdhIiwidXNlcl9pZCI6IjIifQ.j8jVZ4DNwzF64XW1n9l4NLcCQcbNFOIXJ4mhWJUqZ0s
