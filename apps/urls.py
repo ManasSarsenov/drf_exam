@@ -3,10 +3,11 @@ from django.urls import path
 from apps.views import CustomTokenObtainPairView, CustomTokenRefreshView, UserChangePasswordUpdateAPIView, \
     ProductListCreateAPIView, ProductViewSet
 
+product_details = ProductViewSet.as_view(
+    {'get': 'list', 'post': 'create', 'patch': 'partial_update', 'delete': 'destroy'})
 urlpatterns = [
     path('products/', ProductListCreateAPIView.as_view()),
-    path('products/<int:pk>',
-         ProductViewSet.as_view({'get': 'list', 'post': 'create', 'patch': 'partial_update', 'delete': 'destroy'})),
+    path('products/<int:pk>', product_details),
 
     path('users/change-password/', UserChangePasswordUpdateAPIView.as_view(), name='users_change_password'),
     path('auth/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
