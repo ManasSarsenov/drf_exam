@@ -46,7 +46,7 @@ class ProductListModelSerializer(DynamicFieldsModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'discount', 'category','seller', 'images']
+        fields = ['id', 'name', 'price', 'discount', 'category', 'seller', 'images']
 
 
 class ProductCreateModelSerializer(ModelSerializer):
@@ -103,23 +103,3 @@ class CartItemModelSerializer(ModelSerializer):
             'quantity': {'read_only': True},
             'product': {'write_only': True}
         }
-
-    # def create(self, validated_data):
-    #     obj, updated = CartItem.objects.update_or_create(
-    #         defaults={'quantity': F('quantity') + 1},
-    #         create_defaults={'quantity': 1},
-    #         **validated_data
-    #     )
-    #     return obj
-    #
-    # def to_representation(self, instance: CartItem):
-    #     repr_ = super().to_representation(instance)
-    #     user = self.context['request'].user
-    #
-    #     repr_.update(
-    #         **ProductListModelSerializer(instance.product,
-    #                                      fields=['name', 'slug', 'price', 'discount', 'first_image']).data)
-    #     repr_['seller_name'] = instance.product.seller.name
-    #
-    #     # slug, name, price, discount, image, seller_name, quantity
-    #     return repr_
